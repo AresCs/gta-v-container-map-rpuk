@@ -4,6 +4,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import MouseCoordinates from './components/CoordinatesDisplay/CoordinatesDisplay';
 import houseIconUrl from './components/Icons/Images/house.png';
+import MapImage from './components/maps/gta5map.jpg';
 
 interface LocationWithImage {
   name: string;
@@ -35,7 +36,7 @@ const houseIcon = L.divIcon({
 const App = () => {
   const [locations, setLocations] = useState<LocationWithImage[]>([]);
   const mapStyle = { height: "100vh", width: "100%", backgroundColor: "#143d6b" };
-  const imageUrl = "/gta5map.jpg";
+  const imageUrl = MapImage;
   const imageBounds: L.LatLngBoundsExpression = [[0, 0], [100, 100]];
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
