@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/gta-v-container-map-rpuk/static/css/main.323d7611.css",
-    "main.js": "/gta-v-container-map-rpuk/static/js/main.78e3422f.js",
+    "main.js": "/gta-v-container-map-rpuk/static/js/main.3972e81d.js",
     "static/js/592.9494f8d4.chunk.js": "/gta-v-container-map-rpuk/static/js/592.9494f8d4.chunk.js",
     "index.html": "/gta-v-container-map-rpuk/index.html",
     "main.323d7611.css.map": "/gta-v-container-map-rpuk/static/css/main.323d7611.css.map",
-    "main.78e3422f.js.map": "/gta-v-container-map-rpuk/static/js/main.78e3422f.js.map",
+    "main.3972e81d.js.map": "/gta-v-container-map-rpuk/static/js/main.3972e81d.js.map",
     "592.9494f8d4.chunk.js.map": "/gta-v-container-map-rpuk/static/js/592.9494f8d4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.323d7611.css",
-    "static/js/main.78e3422f.js"
+    "static/js/main.3972e81d.js"
   ]
 }
