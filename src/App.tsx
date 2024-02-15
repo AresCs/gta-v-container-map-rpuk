@@ -4,7 +4,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import MouseCoordinates from './components/CoordinatesDisplay/CoordinatesDisplay';
 import houseIconUrl from './components/Icons/Images/house.png';
-import MapImage from './components/maps/gta5map.jpg';
+import gta5map from './components/maps/gta5map.jpg';
 
 interface LocationWithImage {
   name: string;
@@ -36,7 +36,6 @@ const houseIcon = L.divIcon({
 const App = () => {
   const [locations, setLocations] = useState<LocationWithImage[]>([]);
   const mapStyle = { height: "100vh", width: "100%", backgroundColor: "#143d6b" };
-  const imageUrl = MapImage;
   const imageBounds: L.LatLngBoundsExpression = [[0, 0], [100, 100]];
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -61,21 +60,24 @@ const App = () => {
       <input type="file" onChange={handleFileChange} accept=".json" />
       <MapContainer center={[50, 50]} zoom={3.5} scrollWheelZoom={true} style={mapStyle}>
         <MouseCoordinates />
-        <ImageOverlay url={imageUrl} bounds={imageBounds} />
+        <ImageOverlay
+          url={gta5map}
+          bounds={imageBounds}
+        />
         {locations.map((location, index) => (
           <Marker key={index} position={location.position} icon={houseIcon}>
             <Popup maxWidth={1000}>
-                <strong>{location.name}</strong><br />
-                <img
-                  src={location.imageUrl}
-                  alt={location.name}
-                  style={{
-                    maxWidth: '900px', 
-                    height: 'auto', 
-                    borderRadius: '4px',
-                  }}
-                />
-                <p style={{
+              <strong>{location.name}</strong><br />
+              <img
+                src={location.imageUrl}
+                alt={location.name}
+                style={{
+                  maxWidth: '900px',
+                  height: 'auto',
+                  borderRadius: '4px',
+                }}
+              />
+              <p style={{
                 marginTop: '10px',
               }}>{location.additionalText}</p>
             </Popup>
