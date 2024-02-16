@@ -17,7 +17,7 @@ interface LocationWithImage {
 const houseIcon = L.divIcon({
   className: 'custom-house-icon',
   html: `<div style="
-    background-color: white; 
+    background-color: black; 
     padding: 5px; 
     border-radius: 50%; 
     display: flex; 
