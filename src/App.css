@@ -1,36 +1,24 @@
-/* App.css */
-html, body, #root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: #143d6b;
-  display: flex; /* Add this to make the content center vertically and horizontally */
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
-}
-
-/* Add scrollbar to the map container */
-.map-container {
-  position: relative;
-  width: 100%;
-  background-color: #143d6b;
-  height: 100%;
-  overflow: hidden; /* Add overflow property for scrollbar */
-}
-
-.map-container img {
-  width: 100%;
-  height: 100%;
-  background-color: #143d6b;
-  object-fit: cover;
-}
-
-
-/* App.css */
-.mouse-coordinates {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
+.button-container {
+  position: absolute;
+  top: 50px; /* Adjust as necessary */
+  right: 10px; /* Adjust based on your layout */
+  z-index: 500; /* Ensure it's above the map */
+  display: flex;
+  flex-direction: column;
   background-color: white;
-  border: 1px solid black;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.65); /* Similar to Leaflet's control buttons */
+  padding: 5px;
+}
+
+.button-container button {
+  margin: 2px;
+  padding: 5px 10px; /* Adjust padding as necessary */
+  background-color: #f4f4f4; /* Light grey background */
+  border: none;
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  background-color: #e2e2e2; /* Slightly darker on hover */
 }

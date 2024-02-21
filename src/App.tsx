@@ -2,6 +2,7 @@ import React, { useState, ChangeEvent } from 'react';
 import { MapContainer, Marker, Popup, ImageOverlay } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import './App.css'; // Adjust the path based on where your CSS file is located
 import MouseCoordinates from './components/CoordinatesDisplay/CoordinatesDisplay';
 import houseIconUrl from './components/Icons/Images/house.png';
 import GTAVAtlas from './components/maps/GTAVAtlas.png';
@@ -68,17 +69,19 @@ const App = () => {
 
   return (
     <div>
-      <input type="file" onChange={handleFileChange} accept=".json" />
-      <div>
-        <button onClick={() => setActiveMap(maps.GTAVSatellite)}>Satellite View</button>
-        <button onClick={() => setActiveMap(maps.GTAVAtlas)}>Atlas View</button>
-      </div>
+      <input
+        type="file"
+        onChange={handleFileChange}
+        accept=".json"
+        style={{ display: 'none' }}
+        id="fileInput"
+      />
       <MapContainer
         center={[50, 50]}
         zoom={3.5}
         scrollWheelZoom={true}
         style={{ height: "100vh", width: "100%", backgroundColor: activeMap.backgroundColor }}
-        key={activeMap.url} // Force remount on map toggle
+        key={activeMap.url}
       >
         <MouseCoordinates />
         <ImageOverlay url={activeMap.url} bounds={imageBounds} />
@@ -101,6 +104,14 @@ const App = () => {
             </Popup>
           </Marker>
         ))}
+        <div className="button-container">
+          <button onClick={() => {
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput) fileInput.click();
+          }}>Choose File</button>
+          <button onClick={() => setActiveMap(maps.GTAVSatellite)}>Satellite View</button>
+          <button onClick={() => setActiveMap(maps.GTAVAtlas)}>Atlas View</button>
+        </div>
       </MapContainer >
     </div >
   );
