@@ -4,7 +4,19 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import MouseCoordinates from './components/CoordinatesDisplay/CoordinatesDisplay';
 import houseIconUrl from './components/Icons/Images/house.png';
-import gta5map from './components/maps/gta5map.jpg';
+import GTAVAtlas from './components/maps/GTAVAtlas.png';
+import GTAVSatellite from './components/maps/GTAVSatellite.jpg';
+
+const maps = {
+  GTAVSatellite: {
+    url: GTAVSatellite,
+    backgroundColor: "#143d6b",
+  },
+  GTAVAtlas: {
+    url: GTAVAtlas,
+    backgroundColor: "#0FA8D2",
+  },
+};
 
 interface LocationWithImage {
   name: string;
@@ -12,7 +24,6 @@ interface LocationWithImage {
   imageUrl: string;
   additionalText: string;
 }
-
 
 const houseIcon = L.divIcon({
   className: 'custom-house-icon',
@@ -35,7 +46,7 @@ const houseIcon = L.divIcon({
 
 const App = () => {
   const [locations, setLocations] = useState<LocationWithImage[]>([]);
-  const mapStyle = { height: "100vh", width: "100%", backgroundColor: "#143d6b" };
+  const [activeMap, setActiveMap] = useState(maps.GTAVSatellite);
   const imageBounds: L.LatLngBoundsExpression = [[0, 0], [100, 100]];
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -58,12 +69,19 @@ const App = () => {
   return (
     <div>
       <input type="file" onChange={handleFileChange} accept=".json" />
-      <MapContainer center={[50, 50]} zoom={3.5} scrollWheelZoom={true} style={mapStyle}>
+      <div>
+        <button onClick={() => setActiveMap(maps.GTAVSatellite)}>Satellite View</button>
+        <button onClick={() => setActiveMap(maps.GTAVAtlas)}>Atlas View</button>
+      </div>
+      <MapContainer
+        center={[50, 50]}
+        zoom={3.5}
+        scrollWheelZoom={true}
+        style={{ height: "100vh", width: "100%", backgroundColor: activeMap.backgroundColor }}
+        key={activeMap.url} // Force remount on map toggle
+      >
         <MouseCoordinates />
-        <ImageOverlay
-          url={gta5map}
-          bounds={imageBounds}
-        />
+        <ImageOverlay url={activeMap.url} bounds={imageBounds} />
         {locations.map((location, index) => (
           <Marker key={index} position={location.position} icon={houseIcon}>
             <Popup maxWidth={1000}>
