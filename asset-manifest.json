@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/gta-v-container-map-rpuk/static/css/main.323d7611.css",
-    "main.js": "/gta-v-container-map-rpuk/static/js/main.d6000d62.js",
+    "main.css": "/gta-v-container-map-rpuk/static/css/main.1cec9780.css",
+    "main.js": "/gta-v-container-map-rpuk/static/js/main.a07c2a98.js",
     "static/js/592.9494f8d4.chunk.js": "/gta-v-container-map-rpuk/static/js/592.9494f8d4.chunk.js",
-    "static/media/gta5map.jpg": "/gta-v-container-map-rpuk/static/media/gta5map.084f793a91bc431a5e3b.jpg",
+    "static/media/GTAVSatellite.jpg": "/gta-v-container-map-rpuk/static/media/GTAVSatellite.084f793a91bc431a5e3b.jpg",
+    "static/media/GTAVAtlas.png": "/gta-v-container-map-rpuk/static/media/GTAVAtlas.a439884790436ebc537e.png",
     "index.html": "/gta-v-container-map-rpuk/index.html",
-    "main.323d7611.css.map": "/gta-v-container-map-rpuk/static/css/main.323d7611.css.map",
-    "main.d6000d62.js.map": "/gta-v-container-map-rpuk/static/js/main.d6000d62.js.map",
+    "main.1cec9780.css.map": "/gta-v-container-map-rpuk/static/css/main.1cec9780.css.map",
+    "main.a07c2a98.js.map": "/gta-v-container-map-rpuk/static/js/main.a07c2a98.js.map",
     "592.9494f8d4.chunk.js.map": "/gta-v-container-map-rpuk/static/js/592.9494f8d4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.323d7611.css",
-    "static/js/main.d6000d62.js"
+    "static/css/main.1cec9780.css",
+    "static/js/main.a07c2a98.js"
   ]
 }
